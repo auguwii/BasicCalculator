@@ -60,7 +60,7 @@ class _StdCalculatorState extends State<StdCalculator> {
                           ?.copyWith(color: Colors.grey),
                     ),
                   ),
-                  const Divider(),
+                  //const Divider(),
                   Container(
                     alignment: Alignment.centerRight,
                     padding: const EdgeInsets.all(10.0),
