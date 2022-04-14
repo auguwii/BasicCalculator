@@ -24,7 +24,7 @@ class _StdCalculatorState extends State<StdCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Colors.grey.shade400,
       //drawer: const Drawer(),
       appBar: AppBar(
         title: const Text('Basic Calculator'),
@@ -32,7 +32,7 @@ class _StdCalculatorState extends State<StdCalculator> {
             color: Colors.black,
             fontWeight: FontWeight.w500,
             letterSpacing: 1,
-            fontSize: 18),
+            fontSize: 20),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -40,46 +40,48 @@ class _StdCalculatorState extends State<StdCalculator> {
       body: Column(
         children: [
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    strExpression,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5
-                        ?.copyWith(color: Colors.grey),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: const EdgeInsets.all(10.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
+            child: Container(
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    alignment: Alignment.centerRight,
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      strResult,
+                      strExpression,
                       style: Theme.of(context)
                           .textTheme
-                          .headline2
-                          ?.copyWith(color: Colors.black),
+                          .headline5
+                          ?.copyWith(color: Colors.grey),
                     ),
                   ),
-                ),
-              ],
+                  const Divider(),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    padding: const EdgeInsets.all(10.0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Text(
+                        strResult,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 2,
             child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade400,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-              ),
               padding: const EdgeInsets.all(20),
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
